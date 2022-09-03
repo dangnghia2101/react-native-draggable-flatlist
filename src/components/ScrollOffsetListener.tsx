@@ -1,4 +1,4 @@
-import Animated, { runOnJS, useAnimatedReaction } from "react-native-reanimated";
+import Animated, { runOnJS, useAnimatedReaction, runOnUI } from "react-native-reanimated";
 import { typedMemo } from "../utils";
 
 type Props = {
@@ -15,7 +15,7 @@ const ScrollOffsetListener = ({
     return scrollOffset.value
   }, (cur, prev) => {
     if (cur !== prev) {
-      runOnJS(onScrollOffsetChange)(cur)
+      runOnUI(onScrollOffsetChange)(cur)
     }
   }, [scrollOffset])
 
