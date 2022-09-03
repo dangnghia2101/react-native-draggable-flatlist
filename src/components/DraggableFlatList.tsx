@@ -309,6 +309,7 @@ function DraggableFlatListInner<T>(props: DraggableFlatListProps<T>) {
   }
 
   const onScroll = useStableCallback((scrollOffset: number) => {
+    "worklet";
     props.onScrollOffsetChange?.(scrollOffset);
   });
 
