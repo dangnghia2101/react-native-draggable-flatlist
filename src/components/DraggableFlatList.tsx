@@ -14,7 +14,6 @@ import {
 } from "react-native-gesture-handler";
 import Animated, {
   runOnJS,
-  runOnUI,
   useAnimatedReaction,
   useAnimatedScrollHandler,
   useSharedValue,
@@ -319,7 +318,7 @@ function DraggableFlatListInner<T>(props: DraggableFlatListProps<T>) {
         scrollOffset.value = horizontalAnim.value
           ? evt.contentOffset.x
           : evt.contentOffset.y;
-        runOnUI(onScroll)(scrollOffset.value);
+        runOnJS(onScroll)(scrollOffset.value);
       },
     },
     [horizontalAnim]
